@@ -1,0 +1,24 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="exampleModalLabel">ADD LABORATORY</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/laboratories/add" method="post">
+                <div class="modal-body text-white">
+                    <label for="inLocation">Location</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <input id="inLocation" type="text" name="location" placeholder="Location" class="form-control">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

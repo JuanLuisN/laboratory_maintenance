@@ -17,4 +17,12 @@ authMiddleware.isNotLoggedIn = (req, res, next) => {
     res.redirect('/')
 }
 
+authMiddleware.isAdmin = (req, res, next) => {
+    if(req.user.fk_rol === 1) {
+        return next()
+    }
+    req.flash('error_msg', 'You do not have the necessary permissions')
+    res.redirect('/')
+}
+
 module.exports = authMiddleware

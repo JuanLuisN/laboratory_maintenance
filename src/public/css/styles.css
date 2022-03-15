@@ -1,4 +1,8 @@
 body{
-    background: #E1E3F9;
+    background: #E5E5E5;
     font-family: 'DM Sans', sans-serif;
+}
+
+.card-radius {
+    border-radius: 50%;
 }
