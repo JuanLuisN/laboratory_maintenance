@@ -1,0 +1,83 @@
+<div class="modal fade" id="editUser{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="exampleModalLabel">EDIT USER</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/users/edit/{{id}}" method="post">
+                <div class="modal-body text-white">
+                    <label>User name</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                        <input type="text" name="username" value="{{username}}" placeholder="User name" class="form-control" required>
+                    </div>
+                    <label>Full name</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-signature"></i></span>
+                        <input type="text" name="fullname" value="{{fullname}}" placeholder="Full name" class="form-control" required>
+                    </div>
+                    <label>Email</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="text" name="email" value="{{email}}" placeholder="Email" class="form-control" required>
+                    </div>
+                    <label>Password</label>
+                    <label class="text-danger d-none" id="higherPass{{id}}"><small><i class="fas fa-exclamation-circle"></i>
+                            The password must be greater than 8 characters.</small></label>
+                    <label class="text-danger d-none" id="matchPass{{id}}"><small><i class="fas fa-exclamation-circle"></i>
+                            Passwords do not match.</small></label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input type="password" id="password{{id}}" name="password" placeholder="Password" class="form-control"
+                            required>
+                    </div>
+                    <label>Confirm password</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input type="password" id="confirmPass{{id}}" placeholder="Confirm password" class="form-control"
+                            required>
+                    </div>
+                    <label>Rol</label>
+                    {{{getRole fk_rol}}}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="btnSave{{id}}" class="btn btn-info" disabled>Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const password{{id}} = document.getElementById("password{{id}}")
+    const confirmPass{{id}} = document.getElementById("confirmPass{{id}}")
+    const higherPass{{id}} = document.getElementById("higherPass{{id}}")
+    const matchPass{{id}} = document.getElementById("matchPass{{id}}")
+    const btnSave{{id}} = document.getElementById("btnSave{{id}}")
+
+    password{{id}}.addEventListener("input", () => {
+        if (!password{{id}}.value == "") {
+            if (password{{id}}.value.length < 8) {
+                higherPass{{id}}.classList.remove("d-none")
+                btnSave{{id}}.disabled = true
+            } else {
+                higherPass{{id}}.classList.add("d-none")
+                btnSave{{id}}.disabled = false
+            }
+        }
+    })
+    confirmPass{{id}}.addEventListener("input", () => {
+        if (!confirmPass{{id}}.value == "") {
+            if (password{{id}}.value == confirmPass{{id}}.value) {
+                matchPass{{id}}.classList.add("d-none")
+                btnSave{{id}}.disabled = false
+            } else {
+                matchPass{{id}}.classList.remove("d-none")
+                btnSave{{id}}.disabled = true
+            }
+        }
+    })
+</script>
