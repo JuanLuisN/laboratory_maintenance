@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <div class="card bg-dark border rounded-pill mb-4">
+        <div class="card-header text-center text-white">
+            <h1>SUPPORT TICKETS</h1>
+            <hr>
+            <div class="d-grid">
+                <button type="button" class="btn btn-light w-50 mx-auto rounded-pill" data-bs-toggle="modal"
+                    data-bs-target="#addSupportTicket">
+                    <i class="fas fa-plus-square"></i> Add support ticket
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each tickets}}
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="card bg-dark border rounded h-100">
+                <div class="card-header text-white text-center">
+                    <a href="/maintenance={{fk_computer}}" class="btn btn-warning position-absolute top-0 end-0 ms-1 mt-1 rounded-pill">
+                        <i class="fas fa-tools"></i> Maintenance
+                    </a>
+                    <i class="fas fa-ticket-alt fa-5x mt-5"></i>
+                    <h5 class="mt-3">{{username}}</h5>
+                </div>
+                <div class="card-body text-white text-center">
+                    <h6 class="text-secondary">Location</h6>
+                    <p>{{location}}</p>
+                    <h6 class="text-secondary">Serial number computer</h6>
+                    <p>{{serial_number}}</p>
+                    <h6 class="text-secondary">Required fixes</h6>
+                    <p>{{required_fixes}}</p>
+                    <h6 class="text-secondary">Status</h6>
+                    <p>{{status}}</p>
+
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid">
+                        {{#if (isAdmin idu)}}
+                            {{#if (inProcess status)}}
+                                <button type="button" class="btn btn-info mb-2 rounded-pill" data-bs-toggle="modal"
+                                    data-bs-target="#addMaintenance{{id}}"><i class="fas fa-plus-square"></i> Add
+                                    maintenance
+                                </button>
+                            {{else}}
+                                <a href="/support_tickets/changeStatus/{{id}}" class="btn btn-success rounded-pill mb-2"><i
+                                class="fas fa-check"></i> Switch to processing</a>
+                            {{/if}}
+                        {{else}}
+                            <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
+                            data-bs-target="#deleteSupportTicket{{id}}"><i class="fas fa-trash-alt"></i> Delete</button>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>adminComponents/ticketsModals/addM}}
+        {{>adminComponents/ticketsModals/delete}}
+        {{else}}
+        <h3 class="text-center">No tickets added</h3>
+        {{/each}}
+    </div>
+</div>
+{{>adminComponents/ticketsModals/add}}

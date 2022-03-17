@@ -1,0 +1,23 @@
+<div class="modal fade" id="addMaintenance{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="exampleModalLabel">ADD MAINTENANCE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/support_tickets/addM/{{id}}" method="post">
+                <div class="modal-body text-white">
+                    <label>What maintenance was performed?</label>
+                    <div class="my-2">
+                        <textarea type="text" name="fixes" placeholder="What maintenance was performed?" class="form-control" required></textarea>
+                        <input name="id_computer" value="{{fk_computer}}" class="d-none">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info rounded-pill">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -93,3 +93,12 @@ hbs.handlebars.registerHelper('getNetwork', (network) => {
     </div>
     `
 })
+
+hbs.handlebars.registerHelper('setDate', (date) => {
+    const dateSet = date.toString()
+    return dateSet.substring(4,15)
+})
+
+hbs.handlebars.registerHelper('inProcess', (status) => {
+    return status == 'Process' ? true : false
+})

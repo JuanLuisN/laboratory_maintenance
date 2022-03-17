@@ -68,5 +68,22 @@ create table support_ticket(
     fk_computer int,
     lifting_date TIMESTAMP NOT NULL DEFAULT current_timestamp,
     required_fixes varchar(500),
-    status varchar(50)
+    status varchar(50),
+    FOREIGN KEY(fk_user)REFERENCES users(id),
+    FOREIGN KEY(fk_computer)REFERENCES computer(id)
 );
+
+DELIMITER //
+CREATE TRIGGER `DeleteComputer` BEFORE DELETE ON `computer` FOR EACH ROW BEGIN
+	DELETE FROM computer_components WHERE fk_computer_c = OLD.id;
+	DELETE FROM computer_maintenance WHERE fk_computer = OLD.id;
+	DELETE FROM computer_perhipheals WHERE fk_computer_p = OLD.id;
+	DELETE FROM support_ticket WHERE fk_computer = OLD.id;
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER `DeleteLaboratory` BEFORE DELETE ON `laboratory` FOR EACH ROW BEGIN
+	DELETE FROM computer WHERE fk_laboratory = OLD.id;
+END//
+DELIMITER ;

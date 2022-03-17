@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="card bg-dark border rounded-pill mb-4">
+        <div class="card-header text-center text-white">
+            <h1>COMPUTER MAINTENANCE</h1>
+            <div class="d-grid">
+                <button type="button" class="btn btn-danger position-absolute top-0 start-0 me-1 ms-5 mt-3 rounded-pill" onClick="history.go(-1);">
+                        <i class="fas fa-angle-left"></i> To return
+                    </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each maintenance}}
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="card bg-dark border rounded h-100">
+                <div class="card-header text-white text-center">
+                    <i class="fas fa-tools fa-5x"></i>
+                    <h5 class="mt-3">{{setDate maintenance_date}}</h5>
+                </div>
+                <div class="card-body text-white text-center">
+                    <h6 class="text-secondary">Fixes</h6>
+                    <p>{{fixes}}</p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <h3 class="text-center">There is no maintenance</h3>
+        {{/each}}
+    </div>
+</div>

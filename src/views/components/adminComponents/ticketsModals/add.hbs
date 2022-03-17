@@ -1,0 +1,27 @@
+<div class="modal fade" id="addSupportTicket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title" id="exampleModalLabel">ADD SUPPORT TICKET</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/support_tickets/add" method="post">
+                <div class="modal-body text-white">
+                    <label>Serial number computer</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text">#</span>
+                        <input type="number" name="serial_number" placeholder="Serial number computer" class="form-control" required>
+                    </div>
+                    <label>Required fixes</label>
+                    <div class="my-2">
+                        <textarea name="required_fixes" placeholder="Required fixes" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info rounded-pill">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

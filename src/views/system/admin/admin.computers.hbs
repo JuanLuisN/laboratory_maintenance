@@ -4,6 +4,9 @@
             <h1>COMPUTERS</h1>
             <hr>
             <div class="d-grid">
+                <a href="/laboratories" class="btn btn-danger position-absolute top-0 start-0 me-1 ms-5 mt-3 rounded-pill">
+                        <i class="fas fa-angle-left"></i> To return
+                    </a>
                 <button type="button" class="btn btn-light w-50 mx-auto rounded-pill" data-bs-toggle="modal"
                     data-bs-target="#addComputer">
                     <i class="fas fa-plus-square"></i> Add computer
@@ -17,8 +20,11 @@
             <div class="card bg-dark border rounded h-100">
                 <div class="card-header text-white text-center">
                     <button type="button" class="btn btn-success position-absolute top-0 end-0 me-1 mt-1 rounded-pill" data-bs-toggle="modal"
-                            data-bs-target="#detailsComputer{{id}}"><i class="fas fa-eye"></i> See components
+                            data-bs-target="#detailsComputer{{id}}"><i class="fas fa-memory"></i> Components
                     </button>
+                    <a href="/maintenance={{id}}" class="btn btn-warning position-absolute top-0 start-0 ms-1 mt-1 rounded-pill">
+                        <i class="fas fa-tools"></i> Maintenance
+                    </a>
                     <i class="fas fa-desktop fa-5x mt-5"></i>
                     <h5 class="mt-3">{{serial_number}}</h5>
                 </div>
@@ -44,7 +50,7 @@
         {{>adminComponents/computersModals/details}}
         {{>adminComponents/computersModals/delete}}
         {{else}}
-        <h3 class="text-center">You do not have users added</h3>
+        <h3 class="text-center">You do not have computers added</h3>
         {{/each}}
     </div>
 </div>

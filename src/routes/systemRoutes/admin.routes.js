@@ -4,6 +4,8 @@ const router = express.Router()
 const laboratoriesController = require('../../controllers/systemControllers/admin/laboratories.controller')
 const usersController = require('../../controllers/systemControllers/admin/users.controller')
 const computersController = require('../../controllers/systemControllers/admin/computers.controller')
+const maintenanceController = require('../../controllers/systemControllers/admin/maintenance.controller')
+const ticketsController = require('../../controllers/systemControllers/admin/tickers.controller')
 const authMiddleware = require('../../middlewares/authMiddleware')
 
 router.get('/laboratories', authMiddleware.isAdmin, laboratoriesController.renderLaboratories)
@@ -20,5 +22,13 @@ router.get('/computers=:id', computersController.renderComputers)
 router.post('/computers=:id/add', authMiddleware.isAdmin, computersController.addComputer)
 router.post('/computers/edit/:id/:lab', authMiddleware.isAdmin, computersController.editComputer)
 router.get('/users/delete/:id/:lab', authMiddleware.isAdmin, computersController.deleteComputer)
+
+router.get('/maintenance=:id', maintenanceController.renderMaintenance)
+
+router.get('/support_tickets', ticketsController.renderTickets)
+router.post('/support_tickets/add', ticketsController.addSupportTicket)
+router.get('/support_tickets/delete/:id', ticketsController.deleteSupportTicket)
+router.get('/support_tickets/changeStatus/:id', ticketsController.changeProcess)
+router.post('/support_tickets/addM/:id', ticketsController.addMaintenance)
 
 module.exports = router
