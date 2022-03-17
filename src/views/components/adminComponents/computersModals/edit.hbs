@@ -1,0 +1,130 @@
+<div class="modal fade" id="editComputer{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">EDIT COMPUTER {{id}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-white"> 
+                <form action="/computers/edit/{{id}}/{{fk_laboratory}}" method="POST">
+                <label>Serial number</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text">#</span>
+                    <input type="number" value="{{serial_number}}" name="serial_number" placeholder="Serial number"
+                        class="form-control" required>
+                </div>
+                <label>Brand</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-desktop"></i></span>
+                    <input type="text" value="{{brand}}" name="brand" placeholder="Brand" class="form-control" required>
+                </div>
+                <label>Network type</label>
+                {{{getNetwork network_type}}}
+                <label>Status</label>
+                {{{getStatus status}}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Close</button>
+                <a role="button" class="btn btn-info rounded-pill" data-bs-target="#editPeripherals{{id}}"
+                    data-bs-toggle="modal">
+                    Following <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editPeripherals{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">EDIT PERIPHERALS</h5>
+            </div>
+            <div class="modal-body text-white">
+                <label>Display</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-tv"></i></span>
+                    <input type="text" value="{{display}}" name="display" placeholder="Display" class="form-control"
+                        required>
+                </div>
+                <label>Keyboard</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                    <input type="text" value="{{keyboard}}" name="keyboard" placeholder="Keyboard" class="form-control"
+                        required>
+                </div>
+                <label>Mouse</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-mouse"></i></span>
+                    <input type="text" value="{{mouse}}" name="mouse" placeholder="Mouse" class="form-control" required>
+                </div>
+                <label>Sound</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-volume-up"></i></span>
+                    <input type="text" value="{{sound}}" name="sound" placeholder="Sound" class="form-control" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a role="button" class="btn btn-danger rounded-pill" data-bs-target="#editComputer{{id}}"
+                    data-bs-toggle="modal">
+                    <i class="fas fa-angle-left"></i> Previous
+                </a>
+                <a role="button" class="btn btn-info rounded-pill" data-bs-target="#editComponents{{id}}"
+                    data-bs-toggle="modal">
+                    Following <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editComponents{{id}}" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header text-white">
+                <h5 class="modal-title">EDIT COMPONENTS</h5>
+            </div>
+            <div class="modal-body text-white">
+                <label>Ram memory</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-memory"></i></span>
+                    <input type="text" value="{{ram_memory}}" name="ram_memory" placeholder="Ram memory"
+                        class="form-control" required>
+                </div>
+                <label>Motherboard</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-chess-board"></i></span>
+                    <input type="text" value="{{motherboard}}" name="motherboard" placeholder="Motherboard"
+                        class="form-control" required>
+                </div>
+                <label>CPU</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-microchip"></i></span>
+                    <input type="text" value="{{cpu}}" name="cpu" placeholder="CPU" class="form-control" required>
+                </div>
+                <label>GPU</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-microchip"></i></span>
+                    <input type="text" value="{{gpu}}" name="gpu" placeholder="GPU" class="form-control" required>
+                </div>
+                <label>PSU</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-plug"></i></span>
+                    <input type="text" value="{{psu}}" name="psu" placeholder="PSU" class="form-control" required>
+                </div>
+                <label>Storage</label>
+                <div class="input-group my-2">
+                    <span class="input-group-text"><i class="fas fa-hdd"></i></span>
+                    <input type="text" value="{{storage}}" name="storage" placeholder="Storage" class="form-control"
+                        required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a role="button" class="btn btn-danger rounded-pill" data-bs-target="#editPeripherals{{id}}"
+                    data-bs-toggle="modal">
+                    <i class="fas fa-angle-left"></i> Previous
+                </a>
+                <button type="submit" class="btn btn-info rounded-pill">Save changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

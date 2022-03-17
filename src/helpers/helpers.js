@@ -35,4 +35,14 @@ helpers.initialState = async () => {
     }
 }
 
+helpers.emailExists = async (email) => {
+    const exists = await connection.query(`select * from users where email like '%${email}%'`)
+    return exists.length > 0 ? true : false
+}
+
+helpers.serialNumberExists = async (serial_number) => {
+    const exists = await connection.query(`select * from computer where serial_number like '%${serial_number}%'`)
+    return exists.length > 0 ? true : false
+}
+
 module.exports = helpers

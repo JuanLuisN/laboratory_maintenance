@@ -1,0 +1,167 @@
+<form action="/computers={{idLaboratory}}/add" method="POST">
+    <div class="modal fade" id="addComputer" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">ADD COMPUTER</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-white">
+                    <label>Serial number</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text">#</span>
+                        <input type="number" name="serial_number" placeholder="Serial number" class="form-control" required>
+                    </div>
+                    <label>Brand</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-desktop"></i></span>
+                        <input type="text" name="brand" placeholder="Brand" class="form-control" required>
+                    </div>
+                    <label>Network type</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-network-wired"></i></span>
+                        <select name="network_type" class="form-select" aria-label="Default select example" required>
+                            <option selected>Select the type of network </option>
+                            <option value="Ethernet">Ethernet</option>
+                            <option value="Wifi">Wifi</option>
+                        </select>
+                    </div>
+                    <label>Status</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-exclamation-triangle"></i></span>
+                        <select name="status" class="form-select" aria-label="Default select example" required>
+                            <option selected>Select status</option>
+                            <option value="Working">Working</option>
+                            <option value="In repair">In repair</option>
+                            <option value="In down">In down</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <a role="button" class="btn btn-info rounded-pill" data-bs-target="#addPeripherals"
+                        data-bs-toggle="modal">
+                        Following <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addPeripherals" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">ADD PERIPHERALS</h5>
+                </div>
+                <div class="modal-body text-white">
+                    <label>Display</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-tv"></i></span>
+                        <input type="text" name="display" placeholder="Display" class="form-control" required>
+                    </div>
+                    <label>Keyboard</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                        <input type="text" name="keyboard" placeholder="Keyboard" class="form-control" required>
+                    </div>
+                    <label>Mouse</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-mouse"></i></span>
+                        <input type="text" name="mouse" placeholder="Mouse" class="form-control" required>
+                    </div>
+                    <label>Sound</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-volume-up"></i></span>
+                        <input type="text" name="sound" placeholder="Sound" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a role="button" class="btn btn-danger rounded-pill" data-bs-target="#addComputer"
+                        data-bs-toggle="modal">
+                        <i class="fas fa-angle-left"></i> Previous
+                    </a>
+                    <a role="button" class="btn btn-info rounded-pill" data-bs-target="#addComponents"
+                        data-bs-toggle="modal">
+                        Following <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addComponents" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">ADD COMPONENTS</h5>
+                </div>
+                <div class="modal-body text-white">
+                    <label>Ram memory</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-memory"></i></span>
+                        <input type="text" name="ram_memory" placeholder="Ram memory" class="form-control" required>
+                    </div>
+                    <label>Motherboard</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-chess-board"></i></span>
+                        <input type="text" name="motherboard" placeholder="Motherboard" class="form-control" required>
+                    </div>
+                    <label>CPU</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-microchip"></i></span>
+                        <input type="text" name="cpu" placeholder="CPU" class="form-control" required>
+                    </div>
+                    <label>GPU</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-microchip"></i></span>
+                        <input type="text" name="gpu" placeholder="GPU" class="form-control" required>
+                    </div>
+                    <label>PSU</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-plug"></i></span>
+                        <input type="text" name="psu" placeholder="PSU" class="form-control" required>
+                    </div>
+                    <label>Storage</label>
+                    <div class="input-group my-2">
+                        <span class="input-group-text"><i class="fas fa-hdd"></i></span>
+                        <input type="text" name="storage" placeholder="Storage" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a role="button" class="btn btn-danger rounded-pill" data-bs-target="#addPeripherals"
+                        data-bs-toggle="modal">
+                        <i class="fas fa-angle-left"></i> Previous
+                    </a>
+                    <a role="button" class="btn btn-info rounded-pill" data-bs-target="#addFirstMaintenance"
+                        data-bs-toggle="modal">
+                        Following <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addFirstMaintenance" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">ADD FIRST MAINTENANCE</h5>
+                </div>
+                <div class="modal-body text-white">
+                    <label>What maintenance was performed?</label>
+                    <div class="my-2">
+                        <textarea name="fixes" placeholder="What maintenance was performed?" class="form-control" cols="30" rows="10" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a role="button" class="btn btn-danger rounded-pill" data-bs-target="#addComponents"
+                        data-bs-toggle="modal">
+                        <i class="fas fa-angle-left"></i> Previous
+                    </a>
+                    <button type="submit" class="btn btn-info rounded-pill">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

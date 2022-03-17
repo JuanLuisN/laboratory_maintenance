@@ -16,14 +16,17 @@
         <div class="col-sm-12 col-md-4 col-lg-4">
             <div class="card bg-dark border rounded h-100">
                 <div class="card-header text-white text-center">
-                    <i class="fas fa-laptop-house fa-5x"></i>
+                    <a href="/computers={{id}}" class="btn btn-success position-absolute top-0 end-0 me-1 mt-1 rounded-pill">
+                        <i class="fas fa-desktop"></i> See computers
+                    </a>
+                    <i class="fas fa-laptop-house fa-5x mt-4"></i>
                     <h5 class="mt-3">{{location}}</h5>
                 </div>
                 <div class="card-body">
                     <div class="d-grid">
-                        <button type="button" class="btn btn-info mb-2" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-info mb-2 rounded-pill" data-bs-toggle="modal"
                             data-bs-target="#editLaboratory{{id}}"><i class="fas fa-edit"></i> Edit</button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
                             data-bs-target="#deleteLaboratory{{id}}"><i class="fas fa-trash-alt"></i> Delete</button>
                     </div>
                 </div>

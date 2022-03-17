@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="card bg-dark border rounded-pill mb-4">
+        <div class="card-header text-center text-white">
+            <h1>COMPUTERS</h1>
+            <hr>
+            <div class="d-grid">
+                <button type="button" class="btn btn-light w-50 mx-auto rounded-pill" data-bs-toggle="modal"
+                    data-bs-target="#addComputer">
+                    <i class="fas fa-plus-square"></i> Add computer
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each computers}}
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="card bg-dark border rounded h-100">
+                <div class="card-header text-white text-center">
+                    <button type="button" class="btn btn-success position-absolute top-0 end-0 me-1 mt-1 rounded-pill" data-bs-toggle="modal"
+                            data-bs-target="#detailsComputer{{id}}"><i class="fas fa-eye"></i> See components
+                    </button>
+                    <i class="fas fa-desktop fa-5x mt-5"></i>
+                    <h5 class="mt-3">{{serial_number}}</h5>
+                </div>
+                <div class="card-body text-white text-center">
+                    <h6 class="text-secondary">Brand</h6>
+                    <p>{{brand}}</p>
+                    <h6 class="text-secondary">Network type</h6>
+                    <p>{{network_type}}</p>
+                    <h6 class="text-secondary">Status</h6>
+                    <p>{{status}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-info mb-2 rounded-pill" data-bs-toggle="modal"
+                            data-bs-target="#editComputer{{id}}"><i class="fas fa-edit"></i> Edit</button>
+                        <button type="button" class="btn btn-danger rounded-pill" data-bs-toggle="modal"
+                            data-bs-target="#deleteComputer{{id}}"><i class="fas fa-trash-alt"></i> Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>adminComponents/computersModals/edit}}
+        {{>adminComponents/computersModals/details}}
+        {{>adminComponents/computersModals/delete}}
+        {{else}}
+        <h3 class="text-center">You do not have users added</h3>
+        {{/each}}
+    </div>
+</div>
+{{>adminComponents/computersModals/add}}

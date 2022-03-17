@@ -36,36 +36,37 @@ create table computer (
 );
 
 create table computer_perhipheals(
-    id int primary key auto_increment,
-    fk_computer int,
+    fk_computer_p int primary key,
     display varchar(100),
     keyboard varchar(100),
     mouse varchar(100),
-    sound varchar(100)
+    sound varchar(100),
+    foreign key(fk_computer_p)references computer(id)
 );
 
 create table computer_components(
-   id int primary key auto_increment,
-   fk_computer int,
+   fk_computer_c int primary key,
    ram_memory varchar(100),
    motherboard varchar (100),
    cpu varchar (100),
    gpu varchar (100),
    psu varchar (100),
-   storage varchar (100)
+   storage varchar (100),
+   foreign key(fk_computer_c)references computer(id)
 );
 
 create table computer_maintenance(
     id int primary key auto_increment,
     fk_computer int,
-    fixes varchar(500)
+    fixes varchar(500),
+    maintenance_date TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
 create table support_ticket(
     id int primary key auto_increment,
     fk_user int,
     fk_computer int,
-    lifting_date varchar(100),
+    lifting_date TIMESTAMP NOT NULL DEFAULT current_timestamp,
     required_fixes varchar(500),
     status varchar(50)
 );
